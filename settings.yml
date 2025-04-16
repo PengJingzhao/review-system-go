@@ -1,0 +1,21 @@
+mysql:
+  host: 127.0.0.1  # 本地项目直接填localhost
+  port: 3306 # mysql 端口号
+  db: blog_db # 数据库名称
+  username: root
+  password: 401026211
+  log_level: dev
+  config: charset=utf8&parseTime=True
+  maxIdleConns: 10 # 设置空闲连接池中链接的最大数量
+  maxOpenConns: 25 # 设置打开数据库链接的最大数量
+
+logger:
+  level: info
+  prefix: '[blog]' # log前缀
+  show-line: true # 开启返回函数名和行号
+  log-in-console: true # 是否显示打印的路径
+
+server:
+  host: "0.0.0.0" # 本地服务监听ip
+  port: 8080 # 服务端口
+  env: release # gin服务器的模式，也可以为debug, test
