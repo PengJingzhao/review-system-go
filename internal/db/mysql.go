@@ -6,13 +6,15 @@ import (
 	"log"
 )
 
-var db *gorm.DB
+var DB *gorm.DB
 
-func initMysqlDB() {
+func InitMysqlDB() error {
 	dsn := "root:2048711712P!@tcp(127.0.0.1:3306)/review_system?charset=utf8mb4&parseTime=True&loc=Local"
 	var err error
-	db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatalf("failed to connect database:%v", err)
+		return err
 	}
+	return nil
 }
