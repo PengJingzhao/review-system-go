@@ -7,10 +7,12 @@ import (
 )
 
 func RegisterRoutes(r *gin.Engine) {
-	group := r.Group("/users")
-	group.GET("/listUsers", listUsers)
-	group.GET("/getUser/:id", getUser)
-	group.POST("/createUser", createUser)
+	userGroup := r.Group("/users")
+	{
+		userGroup.GET("/listUsers", listUsers)
+		userGroup.GET("/getUser/:id", getUser)
+		userGroup.POST("/createUser", createUser)
+	}
 }
 
 func listUsers(c *gin.Context) {
